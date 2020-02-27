@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Example_Show2>
+            <version>0.1.0</version>
+        </Example_Show2>    
+    </modules>
+    <frontend>
+        <routers>
+            <show2>
+                <use>standard</use>
+                <args>
+                    <module>Example_Show2</module>
+                    <frontName>show2</frontName>
+                </args>
+            </show2>
+        </routers>
+    </frontend>    
+</config>

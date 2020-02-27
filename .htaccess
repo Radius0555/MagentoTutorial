@@ -1,0 +1,292 @@
+order deny,allow
+deny from 117.78.58.0/23
+allow from all
+
+############################################
+## uncomment these lines for CGI mode
+## make sure to specify the correct cgi php binary file name
+## it might be /cgi-bin/php-cgi
+
+#    Action php5-cgi /cgi-bin/php5-cgi
+#    AddHandler php5-cgi .php
+
+############################################
+## GoDaddy specific options
+
+#   Options -MultiViews
+
+## you might also need to add this line to php.ini
+##     cgi.fix_pathinfo = 1
+## if it still doesn't work, rename php.ini to php5.ini
+
+############################################
+## this line is specific for 1and1 hosting
+
+    #AddType x-mapp-php5 .php
+    #AddHandler x-mapp-php5 .php
+
+############################################
+## default index file
+
+    DirectoryIndex index.php
+
+<IfModule mod_php5.c>
+
+############################################
+## adjust memory limit
+
+#    php_value memory_limit 64M
+    php_value memory_limit 512M
+    php_value max_execution_time 18000
+	php_value max_input_vars 2000
+
+############################################
+## disable magic quotes for php request vars
+
+    php_flag magic_quotes_gpc off
+
+############################################
+## disable automatic session start
+## before autoload was initialized
+
+    php_flag session.auto_start off
+
+############################################
+## enable resulting html compression
+
+    #php_flag zlib.output_compression on
+
+###########################################
+# disable user agent verification to not break multiple image upload
+
+    php_flag suhosin.session.cryptua off
+
+###########################################
+# turn off compatibility with PHP4 when dealing with objects
+
+    php_flag zend.ze1_compatibility_mode Off
+
+</IfModule>
+
+<IfModule mod_security.c>
+###########################################
+# disable POST processing to not break multiple image upload
+
+    SecFilterEngine Off
+    SecFilterScanPOST Off
+</IfModule>
+
+<IfModule mod_deflate.c>
+
+############################################
+## enable apache served files compression
+## http://developer.yahoo.com/performance/rules.html#gzip
+
+    # Insert filter on all content
+    SetOutputFilter DEFLATE
+    # Insert filter on selected content types only
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+
+    # Netscape 4.x has some problems...
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+
+    # Netscape 4.06-4.08 have some more problems
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+
+    # MSIE masquerades as Netscape, but it is fine
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+
+    # Don't compress images
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+
+    # Make sure proxies don't deliver the wrong content
+    # Header append Vary User-Agent env=!dont-vary
+
+</IfModule>
+
+<IfModule mod_ssl.c>
+
+############################################
+## make HTTPS env vars available for CGI mode
+
+    SSLOptions StdEnvVars
+
+</IfModule>
+
+<IfModule mod_rewrite.c>
+
+############################################
+## enable rewrites
+
+    Options +FollowSymLinks
+    RewriteEngine on
+
+<IfModule mod_rewrite.c>
+
+# block chinese bots
+#
+
+RewriteCond %{HTTP_USER_AGENT} (LieBaoFast|MQQBrowser|zh_CN|zh\-CN) [NC]
+RewriteRule .* - [R=403,L]
+
+RewriteCond %{HTTP:Accept-Language} (zh\-CN) [NC]
+RewriteRule .* - [R=403,L]
+
+############################################
+## rewrite files for magento cachebuster
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpeg|jpg|gif)$ $1.$3 [L]
+
+</IfModule>
+
+############################################
+## slash removal re-write done by ALEX MEADE for iamgreenminded.com
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_METHOD} GET
+RewriteCond %{HTTPS} !=on
+RewriteCond %{REQUEST_FILENAME} !\.(gif|jpg|png|jpeg|css|js)$ [NC]
+# RewriteRule ^(.*)/$ http://%{HTTP_HOST}/$1 [L,R=301,NE]
+# RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteRule ^/?(.*) https://%{HTTP_HOST}/$1 [R=301,L,NE]
+############################################
+
+############################################
+## you can put here your magento root folder
+## path relative to web root
+
+    #RewriteBase /magento/
+	#RewriteCond %{HTTP_HOST} !www.arttravel.pl$ [NC]
+	#RewriteRule ^(.*)$ http://www.arttravel.pl/$1 [L,R=301]
+
+#	RewriteCond %{HTTPS} =on
+#	RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1 [L,R=301]
+
+############################################
+## uncomment next line to enable light API calls processing
+
+#    RewriteRule ^api/([a-z][0-9a-z_]+)/?$ api.php?type=$1 [QSA,L]
+
+############################################
+## rewrite API2 calls to api.php (by now it is REST only)
+
+    RewriteRule ^api/rest api.php?type=rest [QSA,L]
+
+############################################
+## workaround for HTTP authorization
+## in CGI environment
+
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+############################################
+## TRACE and TRACK HTTP methods disabled to prevent XSS attacks
+
+    RewriteCond %{REQUEST_METHOD} ^TRAC[EK]
+    RewriteRule .* - [L,R=405]
+
+############################################
+## redirect for mobile user agents
+
+    #RewriteCond %{REQUEST_URI} !^/mobiledirectoryhere/.*$
+    #RewriteCond %{HTTP_USER_AGENT} "android|blackberry|ipad|iphone|ipod|iemobile|opera mobile|palmos|webos|googlebot-mobile" [NC]
+    #RewriteRule ^(.*)$ /mobiledirectoryhere/ [L,R=302]
+
+############################################
+## always send 404 on missing files in these folders
+
+    RewriteCond %{REQUEST_URI} !^/(media|skin|js|skins)/
+
+############################################
+## never rewrite for existing files, directories and links
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+
+############################################
+## rewrite everything else to index.php
+
+    RewriteRule .* index.php [L]
+
+############################################
+## rewrite not existent cache images to original image
+## i.e. http://local.arttravel.pl/media/catalog/product/cache1/1/image/9df78eab33525d08d6e5fb8d27136e95/4/2/426-1_2.jpg\
+##
+    RewriteCond %{REQUEST_URI} ^/media/catalog/product
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+
+    RewriteRule ^media/catalog/product/cache.*?/.*?/image/.*?/(.*?)$ /media/catalog/product/$1 [L]
+
+</IfModule>
+
+
+############################################
+## Prevent character encoding issues from server overrides
+## If you still have problems, use the second line instead
+
+    #AddDefaultCharset Off
+    AddDefaultCharset UTF-8
+
+AddType text/javascript .js
+
+<IfModule mod_expires.c>
+
+############################################
+## Add default Expires header
+## http://developer.yahoo.com/performance/rules.html#expires
+
+    #ExpiresDefault "access plus 1 year"
+      ExpiresActive On
+      ExpiresDefault "access plus 1 seconds"
+      ExpiresByType image/x-icon "access plus 1 day"
+      ExpiresByType image/jpeg "access plus 1 year"
+      ExpiresByType image/png "access plus 1 year"
+      ExpiresByType image/gif "access plus 1 year"
+      ExpiresByType application/x-shockwave-flash "access plus 1 year"
+      ExpiresByType text/css "access plus 604800 seconds"
+      ExpiresByType text/javascript "access plus 1 month"
+      ExpiresByType application/x-javascript "access plus 1 month"
+      ExpiresByType text/html "access plus 600 seconds"
+      ExpiresByType application/xhtml+xml "access plus 600 seconds"
+
+</IfModule>
+
+############################################
+## By default allow all access
+
+    Order allow,deny
+    Allow from all
+
+###########################################
+## Deny access to release notes to prevent disclosure of the installed Magento version
+
+    <Files RELEASE_NOTES.txt>
+        order allow,deny
+        deny from all
+    </Files>
+
+############################################
+## If running in cluster environment, uncomment this
+## http://developer.yahoo.com/performance/rules.html#etags
+
+    #FileETag none
+
+#SetEnvIf Host ^www.arttravel.pl$ MAGE_RUN_CODE=base
+#SetEnvIf Host ^arttravel.pl$ MAGE_RUN_CODE=base
+#SetEnvIf Host ^sklep.ldierserwis.eu$ MAGE_RUN_CODE=sklep
+#SetEnv MAGE_RUN_TYPE website
+
+SetEnvIf Host .*arttravel.* MAGE_RUN_CODE=default
+SetEnvIf Host .*arttravel.* MAGE_RUN_TYPE=store
+
+SetEnvIf Host .*globusy.* MAGE_RUN_CODE=globusy
+SetEnvIf Host .*globusy.* MAGE_RUN_TYPE=store
+
+#Action application/x-httpd-php /fpm/liderserwis-php70
+SetEnv ALLOW_PROFILER "1"

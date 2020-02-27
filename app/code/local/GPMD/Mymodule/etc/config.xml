@@ -1,0 +1,15 @@
+<?xmlversion="1.0"?>
+<config>
+    <modules>
+        <GPMD_Mymodule>
+            <version>0.1.0</version>
+        </GPMD_Mymodule>
+    </modules>
+    <global>
+        <blocks>
+            <mymodule>
+                <class>GPMD_Mymodule_Block</class>
+            </mymodule>
+        </blocks>
+    </global>
+</config>

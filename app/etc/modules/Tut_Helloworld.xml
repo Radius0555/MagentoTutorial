@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Tut_Helloworld>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Tut_Helloworld>
+    </modules>
+</config>

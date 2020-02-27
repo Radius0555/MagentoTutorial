@@ -1,0 +1,8 @@
+<?xml version="0.1.0"?>
+<config>
+    <modules>
+        <Megatutorial_Helloworld>
+            <version>0.1.0</version>
+        </Megatutorial_Helloworld>            
+    </modules>
+</config>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Products_Show>
+            <version>0.1.0</version>
+        </Products_Show>
+    </modules>
+    <frontend>
+        <routers>
+            <loop>
+                <use>standard</use>
+                <args>
+                    <module>Products_Show</module>
+                    <frontName>show</frontName>
+                </args>
+            </loop>
+        </routers>
+        <layout>
+            <updates>
+                <show>
+                    <file>loop.xml</file>
+                </show>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <show>
+                <class>Products_Show_Block</class>
+            </show>
+        </blocks>     
+    </global>
+</config>

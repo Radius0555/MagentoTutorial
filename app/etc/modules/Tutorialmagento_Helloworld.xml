@@ -1,0 +1,9 @@
+<?xml version=”1.0″?>
+<config>
+<modules>
+<tutorialmagento_Helloworld>
+<active>true</active>
+<codePool>local</codePool>
+</tutorialmagento_Helloworld>
+</modules>
+</config>

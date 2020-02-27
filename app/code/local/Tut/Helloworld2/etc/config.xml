@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tut_helloworld>
+            <version>0.1.0</version>
+        </Tut_helloworld>
+    </modules>
+    <frontend>
+        <routers>
+            <helloworld2>
+                <use>standard</use>
+                <args>
+                    <module>Tut_helloworld</module>
+                    <frontName>helloworld2</frontName>
+                </args>
+            </helloworld2>
+        </routers>
+    </frontend>
+</config>

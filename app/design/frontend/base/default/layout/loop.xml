@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <cms_index_index>
+        <reference name="content">
+            <block type="show/loop" name="show_index" template="catalog/product/list.phtml"/>
+        </reference>
+    </cms_index_index>    
+</layout>

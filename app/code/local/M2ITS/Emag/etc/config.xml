@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <M2ITS_Emag>
+            <version>0.0.1</version>
+        </M2ITS_Emag>
+    </modules>
+    <frontend>
+        <routers>
+            <routeurfrontendemag>
+                <use>standard</use>
+                <args>
+                    <module>M2ITS_Emag</module>
+                    <frontName>emagfeed</frontName>
+                </args>
+            </routeurfrontendemag>
+        </routers>
+    </frontend>
+</config>
