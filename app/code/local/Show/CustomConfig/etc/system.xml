@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <customconfig translate="label">
+            <label>MY FIRST APP</label>
+            <sort_order>100</sort_order>
+        </customconfig>
+    </tabs>
+    <sections>
+        <tab2 translate="label" module="adminhtml">
+            <label>Tab #2</label>
+            <tab>customconfig</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                <label>General</label>
+                <sort_order>50</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                    <fields>
+                        <dane translate="label">
+                            <label>Dane</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dane>
+                    </fields>   
+                </general>
+            </groups>
+        </tab2>
+    </sections>
+</config>
