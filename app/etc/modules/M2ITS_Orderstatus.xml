@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <M2ITS_Orderstatus>
+            <active>true</active>
+            <codePool>local</codePool>
+        </M2ITS_Orderstatus>
+    </modules>
+</config>

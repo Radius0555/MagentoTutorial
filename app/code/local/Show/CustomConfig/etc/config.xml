@@ -5,25 +5,11 @@
             <version>0.1.0</version>
         </Show_CustomConfig>
     </modules>
-    <adminhtml>
-        <acl>
-            <resources>
-                <admin>
-                    <children>
-                        <system>
-                            <children>
-                                <config>
-                                    <children>
-                                        <tab2>
-                                            <title>Tab#2</title>
-                                        </tab2>
-                                    </children>
-                                </config>
-                            </children>
-                        </system>
-                    </children>
-                </admin>
-            </resources>
-        </acl>
-    </adminhtml>
+    <global>
+        <helpers>
+            <customconfig>
+                <class>Show_CustomConfig_Helper</class>
+            </customconfig>
+        </helpers>
+    </global>
 </config>

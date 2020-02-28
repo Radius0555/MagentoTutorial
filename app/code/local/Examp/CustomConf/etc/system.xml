@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <examp translate="label" module="customconf">
+            <label>HELLO</label>
+            <sort_order>100</sort_order>
+        </examp>
+    </tabs>
+    <sections>
+        <exampsections translate="label" module="customconf">
+            <label>Zamówienie testowe</label>
+            <tab>examp</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+            <groups>
+                <examp_group translate="label" module="customconf">
+                    <label>Zamówienie testowe</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+
+                    <fields>
+                        <examp_input translate="label">
+                            <label>Imię klienta: </label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </examp_input>
+                    </fields>
+                </examp_group>
+            </groups>
+        </exampsections>
+    </sections>
+</config>

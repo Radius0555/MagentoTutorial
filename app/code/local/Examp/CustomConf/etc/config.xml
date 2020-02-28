@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Examp_CustomConf>
+            <version>0.1.0</version>
+        </Examp_CustomConf>
+    </modules>
+    <global>
+        <helpers>
+            <customconf>
+                <class>Examp_CustomConf_Helper</class>
+            </customconf>
+        </helpers>
+    </global>
+</config>

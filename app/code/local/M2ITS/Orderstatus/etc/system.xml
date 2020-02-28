@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <m2its translate="label" module="orderstatus">
+            <label>M2 IT SOLUTIONS</label>
+            <sort_order>100</sort_order>
+        </m2its>
+    </tabs>
+    <sections>
+        <m2itssections translate="label" module="orderstatus">
+            <label>Zamówienie testowe</label>
+            <tab>m2its</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+            <groups>
+                <m2its_group translate="label" module="orderstatus">
+                    <label>Zamówienie testowe</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+
+                    <fields>
+                        <m2its_input translate="label">
+                            <label>Imię klienta: </label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </m2its_input>
+                    </fields>
+                </m2its_group>
+            </groups>
+        </m2itssections>
+    </sections>
+</config>
