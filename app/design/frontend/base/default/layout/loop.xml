@@ -3,6 +3,6 @@
     <cms_index_index>
         <reference name="content">
             <block type="show/loop" name="show_index" template="catalog/product/list.phtml"/>
-        </reference>
+        </reference>      
     </cms_index_index>    
 </layout>

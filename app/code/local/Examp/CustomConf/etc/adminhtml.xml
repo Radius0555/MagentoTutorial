@@ -8,9 +8,9 @@
                         <children>
                             <config>
                                 <children>
-                                    <exampsections translate="title" module="show_customconfig">
+                                    <examp translate="title" module="examp_customconf">
                                         <title>View Settings Section</title>
-                                    </exampsections>
+                                    </examp>
                                 </children>
                             </config>
                         </children>

@@ -40,7 +40,11 @@
             <option value="5">Komputery</option>
             <option value="6">Laptopy</option>
             <option value="7">Monitory</option>
-        </select></div></br>
+</select></div></br>
+
+<?php echo '<p>Wyrzucony konfig = '.Mage::getStoreConfig('examp/examp_group/examp_input',Mage::app()->getStore()).'</p>'; ?>
+<?php echo '<p>Wyrzucony konfig2 = '.Mage::getStoreConfig('inchoo/inchoo_group/inchoo_input',Mage::app()->getStore()).'</p>'; ?>
+
 
 <script type="text/javascript">
 

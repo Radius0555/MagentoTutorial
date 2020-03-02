@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Inchoo_Mymodule>
+            <active>true</active>
+            <codePool>local</codePool>
+            <version>0.1.0</version>
+        </Inchoo_Mymodule>
+    </modules>
+</config>

@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <tabs>
-        <examp translate="label" module="customconf">
-            <label>HELLO</label>
+        <inchoo translate="label" module="mymodule">
+            <label>Inchoo Extensions</label>
             <sort_order>100</sort_order>
-        </examp>
+        </inchoo>
     </tabs>
     <sections>
-        <examp translate="label" module="customconf">
-            <label>Wyrzuć na stronę</label>
-            <tab>examp</tab>
+        <inchoo translate="label" module="mymodule">
+            <label>Extension Options</label>
+            <tab>inchoo</tab>
             <sort_order>1000</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
-
+ 
             <groups>
-                <examp_group translate="label" module="customconf">
-                    <label>Podaj dane: </label>
+                <inchoo_group translate="label" module="mymodule">
+                    <label>My Extension Options</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>1000</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
-
+ 
                     <fields>
-                        <examp_input translate="label">
-                            <label>Tekst do wyrzucenia: </label>
+                        <inchoo_input translate="label">
+                            <label>My Input Field: </label>
+                            <comment>My Comment</comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </examp_input>
+                        </inchoo_input>
                     </fields>
-                </examp_group>
+                </inchoo_group>
             </groups>
-        </examp>
+        </inchoo>
     </sections>
 </config>
