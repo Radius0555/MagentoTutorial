@@ -2,83 +2,34 @@
 <config>
     <modules>
         <Image_Imgmodule>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </Image_Imgmodule>
     </modules>
-    
+    <global>
+        <models>
+            <imgmodule>
+                <class>Image_Imgmodule_Model</class>
+                <resourceModel>imgmodule_resource</resourceModel>
+            </imgmodule>
+            <imgmodule_resource>
+                <class>Image_Imgmodule_Model_Resource</class>
+                <entities>
+                    <file>
+                        <table>imgmodule_file</table>
+                    </file>
+                </entities>
+            </imgmodule_resource>
+        </models>
+    </global>
     <frontend>
         <routers>
             <imgmodule>
                 <use>standard</use>
                 <args>
                     <module>Image_Imgmodule</module>
-                    <frontName>imgmodule</frontName>
+                    <frontName>file</frontName>
                 </args>
             </imgmodule>
         </routers>
-    </frontend> 
-
-    <global>
-        <models>
-            <image_imgmodule>
-                <class>Image_Imgmodule_Model</class>
-                <resourceModel>image_imgmodule_resource</resourceModel>
-            </image_imgmodule>
-            <image_imgmodule_resource>
-                <class>Image_Imgmodule_Model_Resource</class>
-            </image_imgmodule_resource>
-        </models>
-        <blocks>
-            <image_imgmodule>
-                <class>Image_Imgmodule_Block</class>
-            </image_imgmodule>
-        </blocks>
-    </global>
-    <resources>
-        <image_write>
-            <connection>
-                <use>core_write</use>
-            </connection>
-        </image_write>
-        <image_read>
-            <connection>
-                <use>core_read</use>
-            </connection>
-        </image_read>
-        <image_imgmodule_setup>
-            <setup>
-                <module>Image_Imgmodule</module>
-                <class>Image_Imgmodule_Model_Resource_Setup</class>
-            </setup>
-            <connection>
-                <use>core_setup</use>
-            </connection>
-        </image_imgmodule_setup>
-        <image_imgmodule_resource>
-                <class>Image_Imgmodule_Model_Resource</class>
-                <entities>
-                    <file_entity>
-                        <table>image_imgmodule_file_entity</table>
-                    </file_entity>
-                    <file_entity_datetime>
-                        <table>image_imgmodule_file_entity_datetime</table>
-                    </file_entity_datetime>
-                    <file_entity_decimal>
-                        <table>image_imgmodule_file_entity_decimal</table>
-                    </file_entity_decimal>
-                    <file_entity_int>
-                        <table>image_imgmodule_file_entity_int</table>
-                    </file_entity_int>
-                    <file_entity_text>
-                        <table>image_imgmodule_file_entity_text</table>
-                    </file_entity_text>
-                    <file_entity_varchar>
-                        <table>image_imgmodule_file_entity_varchar</table>
-                    </file_entity_varchar>
-                    <file_entity_char>
-                        <table>image_imgmodule_file_entity_char</table>
-                    </file_entity_char>
-                </entities>
-            </image_imgmodule_resource>
-    </resources>
+    </frontend>
 </config>
