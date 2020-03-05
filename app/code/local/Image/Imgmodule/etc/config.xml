@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Image_Imgmodule>
-            <version>1.1.0</version>
+            <version>3.1.0</version>
         </Image_Imgmodule>
     </modules>
     <global>
@@ -14,9 +14,9 @@
             <imgmodule_resource>
                 <class>Image_Imgmodule_Model_Resource</class>
                 <entities>
-                    <file>
-                        <table>imgmodule_file</table>
-                    </file>
+                    <filebase>
+                        <table>file_base</table>
+                    </filebase>
                 </entities>
             </imgmodule_resource>
         </models>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mygrid_AdminGrid>
+            <version>1.0.0</version>
+        </Mygrid_AdminGrid>
+    </modules>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <mygrid_admingrid before="Mage_Adminhtml">Mygrid_AdminGrid_Adminhtml</mygrid_admingrid>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <admingrid>
+                    <file>admingrid.xml</file>
+                </admingrid>
+            </updates>
+        </layout>    
+    </adminhtml>
+
+    <global>
+        <helpers>
+            <admingrid>
+                <class>Mygrid_AdminGrid_Helper</class>
+            </admingrid>
+        </helpers>
+        <blocks>
+            <mygrid_admingrid>
+                <class>Mygrid_AdminGrid_Block</class>
+            </mygrid_admingrid>
+        </blocks>
+        <models>
+            <admingrid>
+                <class>Mygrid_AdminGrid_Model</class>
+                <resourceModel>admingrid_resource</resourceModel>
+            </admingrid>
+            <admingrid_resource>
+                <class>Mygrid_AdminGrid_Model_Resource</class>
+                    <entites>
+                        <adgrid>
+                            <table>admingrid_adgrid</table>
+                        </adgrid>
+                    </entites>
+            </admingrid_resource>     
+        </models>
+    </global>
+
+
+</config>

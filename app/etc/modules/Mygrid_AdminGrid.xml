@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mygrid_AdminGrid>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mygrid_AdminGrid>
+    </modules>
+</config>

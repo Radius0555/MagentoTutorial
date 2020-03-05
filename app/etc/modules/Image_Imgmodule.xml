@@ -4,7 +4,6 @@
         <Image_Imgmodule>
             <active>true</active>
             <codePool>local</codePool>
-            <version>1.1.0</version>
         </Image_Imgmodule>
     </modules>
 </config>

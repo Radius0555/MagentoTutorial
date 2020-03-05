@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Inchoo_Blog>
+            <version>1.0.0.0</version>
+        </Inchoo_Blog>
+    </modules>
+    <global>
+       <models>
+    <wine>
+        <class>Mymodule_Wine_Model</class>
+        <resourceModel>wine_mysql4</resourceModel>
+    </wine>
+    <wine_mysql4>
+        <class>Mymodule_Wine_Model_Resource</class>
+        <entities>
+            <wine>
+                <table>wine</table>
+            </wine>
+        </entities>
+    </wine_mysql4>
+</models>
+<resources>
+    <wine_setup>
+        <setup>
+            <module>Mymodule_Wine</module>
+        </setup>
+        <connection>
+            <use>core_setup</use>
+        </connection>
+    </wine_setup>
+    <wine_write>
+        <connection>
+            <use>core_connection</use>
+        </connection>
+    </wine_write>
+    <wine_read>
+        <connection>
+            <use>core_read</use>
+        </connection>
+    </wine_read>
+</resources> 
+    </global>
+</config>    
