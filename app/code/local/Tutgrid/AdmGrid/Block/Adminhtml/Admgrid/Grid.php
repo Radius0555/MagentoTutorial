@@ -15,8 +15,8 @@ class Tutgrid_AdmGrid_Block_Adminhtml_Admgrid_Grid extends Mage_Adminhtml_Block_
     protected function _prepareCollection()
     {
         $collection = Mage::getResourceModel('admgrid/textbase_collection');
+//        var_dump($collection);
         $this->setCollection($collection);
-
         return parent::_prepareCollection();
     }
 

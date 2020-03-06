@@ -20,17 +20,37 @@
         <models>
             <admgrid>
                 <class>Tutgrid_AdmGrid_Model</class>
-                <resourceModel>admgrid_resource</resourceModel>
+                <resourceModel>admgrid_mysql4</resourceModel>
             </admgrid>
-            <admgrid_resource>
-                <class>Tutgrid_AdmGrid_Model_Resource</class>
+            <admgrid_mysql4>
+                <class>Tutgrid_AdmGrid_Model_Mysql4</class>
                 <entities>
                     <textbase>
                         <table>admgrid_textbase</table>
                     </textbase>
                 </entities>
-            </admgrid_resource>       
+            </admgrid_mysql4>       
         </models>
+        <resources>
+	  		<admgrid_setup>
+				<setup>
+		  			<module>Tutgrid_AdmGrid</module>
+				</setup>
+				<connection>
+		  			<use>core_setup</use>
+				</connection>
+	  		</admgrid_setup>
+	  		<admgrid_write>
+				<connection>
+		  			<use>core_write</use>
+				</connection>
+	  		</admgrid_write>
+			<admgrid_read>
+				<connection>
+		  			<use>core_read</use>
+				</connection>
+			</admgrid_read>
+		</resources>
     </global>
 
     <admin>
