@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tutgrid_AdmGrid>
+            <version>0.1</version>
+        </Tutgrid_AdmGrid>
+    </modules>
+
+    <global>
+        <helpers>
+            <admgrid>
+                <class>Tutgrid_AdmGrid_Helper</class>
+            </admgrid>    
+        </helpers>
+        <blocks>
+            <admgrid>
+                <class>Tutgrid_AdmGrid_Block</class>
+            </admgrid>
+        </blocks>
+        <models>
+            <admgrid>
+                <class>Tutgrid_AdmGrid_Model</class>
+                <resourceModel>admgrid_resource</resourceModel>
+            </admgrid>
+            <admgrid_resource>
+                <class>Tutgrid_AdmGrid_Model_Resource</class>
+                <entities>
+                    <textbase>
+                        <table>admgrid_textbase</table>
+                    </textbase>
+                </entities>
+            </admgrid_resource>       
+        </models>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <tutgrid_admgrid before="Mage_Adminhtml">Tutgrid_AdmGrid</tutgrid_admgrid>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <admgrid>admgrid.xml</admgrid>
+            </updates>
+        </layout>    
+    </adminhtml>
+
+</config>

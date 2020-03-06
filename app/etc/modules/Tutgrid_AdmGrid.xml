@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tutgrid_AdmGrid>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Tutgrid_AdmGrid>
+    </modules>
+</config>
