@@ -20,25 +20,23 @@
         <models>
             <admgrid>
                 <class>Tutgrid_AdmGrid_Model</class>
-                <resourceModel>admgrid_mysql4</resourceModel>
+                <resourceModel>admgrid_resource</resourceModel>
             </admgrid>
-            <admgrid_mysql4>
-                <class>Tutgrid_AdmGrid_Model_Mysql4</class>
+			
+            <admgrid_resource>
+                <class>Tutgrid_AdmGrid_Model_Resource</class>
                 <entities>
                     <textbase>
                         <table>admgrid_textbase</table>
                     </textbase>
                 </entities>
-            </admgrid_mysql4>       
+            </admgrid_resource>       
         </models>
         <resources>
 	  		<admgrid_setup>
 				<setup>
 		  			<module>Tutgrid_AdmGrid</module>
 				</setup>
-				<connection>
-		  			<use>core_setup</use>
-				</connection>
 	  		</admgrid_setup>
 	  		<admgrid_write>
 				<connection>
@@ -58,7 +56,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <tutgrid_admgrid before="Mage_Adminhtml">Tutgrid_AdmGrid</tutgrid_admgrid>
+                        <tutgrid_admgrid before="Mage_Adminhtml">Tutgrid_AdmGrid_Adminhtml</tutgrid_admgrid>
                     </modules>
                 </args>
             </adminhtml>
@@ -67,7 +65,9 @@
     <adminhtml>
         <layout>
             <updates>
-                <admgrid>admgrid.xml</admgrid>
+                <admgrid>
+                    <file>admgrid.xml</file>                
+                </admgrid>
             </updates>
         </layout>    
     </adminhtml>

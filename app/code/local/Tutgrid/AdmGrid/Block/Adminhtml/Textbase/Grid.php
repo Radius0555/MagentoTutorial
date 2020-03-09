@@ -1,28 +1,32 @@
 <?php
 
-class Tutgrid_AdmGrid_Block_Adminhtml_Admgrid_Grid extends Mage_Adminhtml_Block_Widget_Grid
+class Tutgrid_AdmGrid_Block_Adminhtml_Textbase_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    public function _construct()
+    public function __construct()
     {
-        parent::_construct();
+        parent::__construct();
         $this->setDefaultSort('id');
-        $this->setId('admgrid_admgrid_grid');
+        $this->setId('admgrid_textbase_grid');
         $this->setDefaultDir('asc');
         $this->setSaveParametersInSession(true);
-        $this->setUseAjax(true);
+    }
+
+    protected function _getCollectionClass()
+    {
+        return 'admgrid/textbase_collection';
     }
 
     protected function _prepareCollection()
     {
-        $collection = Mage::getResourceModel('admgrid/textbase_collection');
+        $collection = Mage::getResourceModel($this->_getCollectionClass());
 //        var_dump($collection);
         $this->setCollection($collection);
-        return parent::_prepareCollection();
+		return parent::_prepareCollection();
+
     }
 
     protected function _prepareColumns()
     {
-
         $this->addColumn('id',
             array(
                 'header' => $this->__('ID'),
@@ -32,10 +36,10 @@ class Tutgrid_AdmGrid_Block_Adminhtml_Admgrid_Grid extends Mage_Adminhtml_Block_
             )
         );
 
-        $this->addColumn('items',
+        $this->addColumn('item',
             array(
                 'header' => $this->__('Items'),
-                'index' => 'items'
+                'index' => 'item'
             )
         );
         return parent::_prepareColumns();

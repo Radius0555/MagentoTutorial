@@ -5,11 +5,11 @@
             <title>Admin Grid 2</title>
             <sort_order>100</sort_order>
             <children>
-                <admgrid module="admgrid">
+                <textbase module="admgrid">
                     <title>Manage</title>
                     <sort_order>0</sort_order>
-                    <action>*/admgrid</action>
-                </admgrid>
+                    <action>*/textbase</action>
+                </textbase>
             </children>
         </admgrid>
     </menu>

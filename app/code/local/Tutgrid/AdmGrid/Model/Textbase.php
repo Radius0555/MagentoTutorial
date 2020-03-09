@@ -2,7 +2,7 @@
 
 class Tutgrid_AdmGrid_Model_Textbase extends Mage_Core_Model_Abstract
 {
-    protected function _contruct()
+    protected function _construct()
     {
         $this->_init('admgrid/textbase');
     }

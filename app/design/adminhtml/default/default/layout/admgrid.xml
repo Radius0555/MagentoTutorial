@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <layout version="0.1">
-    <admgrid_index>
+    <adminhtml_textbase_index>
         <reference name="content">
-            <block type="admgrid/admgrid" name="admgrid"/>
+            <block type="admgrid/adminhtml_textbase" name="textbase"/>
         </reference>
-    </admgrid_index>    
+    </adminhtml_textbase_index>    
 </layout>
