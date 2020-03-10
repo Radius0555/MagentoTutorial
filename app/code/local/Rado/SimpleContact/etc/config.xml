@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Rado_SimpleContact>
+            <version>0.1</version>
+        </Rado_SimpleContact>
+    </modules>
+    <frontend>
+        <routers>
+            <simplecontact>
+                <use>standard</use>
+                <args>
+                    <module>Rado_SimpleContact</module>
+                    <frontName>rado-simplecontact</frontName>
+                </args>
+            </simplecontact>
+        </routers>
+    </frontend>
+</config>

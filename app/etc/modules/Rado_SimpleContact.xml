@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Rado_SimpleContact>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Rado_SimpleContact>
+    </modules>
+</config>

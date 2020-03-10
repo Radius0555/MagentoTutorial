@@ -50,7 +50,6 @@
 			</admgrid_read>
 		</resources>
     </global>
-
     <admin>
         <routers>
             <adminhtml>
@@ -71,5 +70,4 @@
             </updates>
         </layout>    
     </adminhtml>
-
 </config>
